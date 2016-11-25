@@ -13,9 +13,10 @@ function LunchCheckController($scope) {
   };
 }
 
+// result null means "no input"
 function countDishes(dishesInput) {
   if (!dishesInput)
-    return 0;
+    return null;
 
   var dishes = dishesInput.split(",");
   var nrOfDishes = 0;
@@ -28,7 +29,7 @@ function countDishes(dishesInput) {
 }
 
 function chooseMessage(nrOfDishes) {
-  if (nrOfDishes == 0)
+  if (nrOfDishes == null)
     return "Please enter data first";
   else if (nrOfDishes <= 3)
       return "Enjoy!";
@@ -37,7 +38,7 @@ function chooseMessage(nrOfDishes) {
 }
 
 function validateInput(nrOfDishes) {
-  return nrOfDishes > 0;
+  return nrOfDishes != null;
 }
 
 })();
