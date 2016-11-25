@@ -8,9 +8,8 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.checkIfTooMuch = function() {
     var nrOfDishes = countDishes($scope.dishes);
-
     $scope.message = chooseMessage(nrOfDishes);
-    $scope.validation = validateInput(nrOfDishes);
+    $scope.isInputValid = validateInput(nrOfDishes);
   };
 }
 
@@ -38,7 +37,7 @@ function chooseMessage(nrOfDishes) {
 }
 
 function validateInput(nrOfDishes) {
-  return nrOfDishes == 0 ? "inputError" : "inputOk";
+  return nrOfDishes > 0;
 }
 
 })();
