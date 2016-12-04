@@ -29,6 +29,7 @@ body > header {
   width: 120px;
   padding: 5px;
   border: 1px solid;
+  margin-bottom: 10px;
   font-size: 125%;
   font-weight: bold;
   text-align: center;
@@ -36,9 +37,8 @@ body > header {
 
 .desc {
   clear: both;
-  margin: 10px;
-  padding-top: 10px;
-  height: 130px;
+  margin: 0px 10px 10px 10px;
+  height: 120px;
   overflow: hidden
 }
 
