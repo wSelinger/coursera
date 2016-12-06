@@ -1,0 +1,10 @@
+<div class="col-xs-12">
+  <div class="col-xs-12" ng-repeat="item in dirCtrl.items">
+    <span class="col-xs-1">{{$index + 1}}</span>
+    <span class="col-md-3 col-xs-1">{{item.name}}</span>
+    <span class="col-xs-1">{{item.short_name}}</span>
+    <span class="col-md-5 col-xs-7">{{item.description}}</span>
+    <button class="btn dont-want-button col-xs-2" ng-click="dirCtrl.onRemove({index: $index});">Don't want this one!</button>
+  </div>
+</div>
+<div ng-if="dirCtrl.errorMessage" class="error-message">{{dirCtrl.errorMessage}}</div>
