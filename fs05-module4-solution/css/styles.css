@@ -1,0 +1,12 @@
+#menuItems .short-name {
+  float: left;
+  width: 3em;
+}
+
+#menuItems .name {
+  float: left
+}
+
+#menuItems li {
+  clear: left
+}
