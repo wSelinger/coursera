@@ -1,0 +1,68 @@
+<div class="container">
+    <fieldset>
+      <legend id="register">Please sign up here</legend>
+      <form name='regForm' novalidate>
+
+        <input class="form-control" type="text" name="firstname" placeholder="Pick a firstname"
+          ng-model="reg.user.firstname"
+          required
+          minlength="4"
+          ng-maxlength="10" autofocus/>
+          <span
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            Firstname must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            Firstname must not be longer than 10 characters
+          </span>
+          <br>
+          <input class="form-control" type="text" name="lastname" placeholder="Pick a lastname"
+            ng-model="reg.user.lastname"
+            required
+            minlength="6"
+            ng-maxlength="20"/>
+            <span
+              ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+              Lastname must be at least 6 characters long
+            </span>
+            <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+              Lastname must not be longer than 20 characters
+            </span>
+            <br>
+
+        <input class="form-control" type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input class="form-control" type="text" name="favourite" placeholder="Menu number of favourite dish"
+          ng-model="reg.user.favourite_short_name"
+          required>
+          <span ng-if="(regForm.favourite.$invalid || reg.favourite_invalid) && regForm.favourite.$touched">
+            No such menu number exists.
+          </span>
+          <br>
+
+        <button
+          class="btn btn-primary"
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit()">Submit</button>
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="reg.completed">
+      <br>
+      Your information has been saved.
+    </div>
+</div>
